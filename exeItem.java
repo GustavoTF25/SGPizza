@@ -15,7 +15,7 @@ public class exeItem {
 	public static void main(String[] args) throws IOException {
 
 		int 	opcao,
-				cont = 0;
+				cont = 1;
 
 		double 	ValorFinal=0,
 				ValorVar =0;
@@ -158,7 +158,7 @@ public class exeItem {
 
 					cont++;}
 					while(!statusRename);
-					System.out.println("Enviado para a cozinha pedido n  " + cont );
+					System.out.println("Enviado para a cozinha pedido n  " + (--cont) );
 					ValorFinal=0;
 					break;
 				case 5:
