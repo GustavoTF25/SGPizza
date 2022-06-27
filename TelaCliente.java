@@ -12,7 +12,7 @@ public class TelaCliente {
 		//ele cria um objeto para manusear a pasta pedidos
 		File dir = new File("./pedidos");
 
-		//exibira para o cliente todos os pedidos que estão em posse da cozinha atualmente
+		//Exibirá na tela todos os nomes dos arquivos que estão dentro da pasta pedidos
 		System.out.println(SimpleTesting.findAllFilesInFolder(dir) );
 
 	}
@@ -21,7 +21,7 @@ public class TelaCliente {
 }
 
 
-// metodo criado para procurar e mostrar todo os arquivos dentro da pasta pedidos
+// metodo criado para procurar e mostrar todos os arquivos dentro da pasta pedidos
 class SimpleTesting {
 	
 	 
