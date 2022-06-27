@@ -14,16 +14,34 @@ import java.util.Scanner;
 public class exeItem {
 
 	public static void main(String[] args) throws IOException {
-		int cont = 0;
+
+		int 	opcao,
+				cont = 0;
+
+		double 	ValorFinal=0,
+				ValorVar =0;
+
+		String 	validar,
+				opcao1;
+
 		Scanner scanSt = new Scanner(System.in);
-		Scanner scan = new Scanner(System.in);
+		Scanner scan   = new Scanner(System.in);
 
 		Pizza pedido = new Pizza();
 
-		String validar;
+         //Criando a pasta pedidos caso nao exista//
 
-		int opcao;
-		String opcao1;
+		if (!(new File("\"./pedidos\"")).mkdir())(new File("\"./pedidos\"")).mkdir();
+
+		// apagando a pasta temporaria pedidosArquivos //
+
+		if (!(new File("pedidoArquivo.txt")).createNewFile()) {
+			(new File("pedidoArquivo.txt")).delete();
+			(new File("pedidoArquivo.txt")).createNewFile();
+		}else (new File("pedidoArquivo.txt")).createNewFile();
+
+		// Menu Principal //
+
 		do {
 			System.out.println("MENU");
 			System.out.println("1) Add Pizza");
@@ -32,7 +50,6 @@ public class exeItem {
 			System.out.println("4) Finalizar Pedidos/ enviar para cozinha");
 			System.out.println("5) Limpar carrinho");
 			System.out.println("6) Sair");
-
 			opcao = scan.nextInt();
 			switch (opcao) {
 				case 1:
@@ -55,22 +72,25 @@ public class exeItem {
 						opcao1 = scanSt.nextLine().toUpperCase();
 						if (opcao1.contains("P")) {
 							pedido.setTamanho("Pequeno");
-							pedido.setPreco("10,50");
+							pedido.setPreco("R$ 10,50");
+							ValorVar=10.50;
 						}
 						if (opcao1.contains("M")) {
 							pedido.setTamanho("Medio");
-							pedido.setPreco("13,50");
+							pedido.setPreco("R$ 13,50");
+							ValorVar=13.50;
 						}
 						if (opcao1.contains("G")) {
 							pedido.setTamanho("Grande");
-							pedido.setPreco("17,50");
+							pedido.setPreco("R$ 17,50");
+							ValorVar=17.50;
 						}
 					} while (opcao1.contains("PMG"));
 					System.out.println("Item: " + pedido.getPedido() + " Sabor: " + pedido.getSabor() + " Tamanho: " + pedido.getTamanho() + "\nPreco: " + pedido.getPreco());
 					System.out.println("Adicionar [S/N]\n");
 					validar = scanSt.nextLine().toUpperCase();
 					if (validar.equals("S")) {
-
+						ValorFinal+=ValorVar;
 						pedido.gravarPedido();
 					}
 					break;
@@ -94,33 +114,42 @@ public class exeItem {
 						opcao1 = scanSt.nextLine().toUpperCase();
 						if (opcao1.contains("P")) {
 							pedido.setTamanho("600ml");
-							pedido.setPreco("4.00");
+							pedido.setPreco("R$ 4.00");
+							ValorVar=4.00;
 						}
 						if (opcao1.contains("M")) {
 							pedido.setTamanho("1 Litro");
-							pedido.setPreco("8,50");
+							pedido.setPreco("R$ 8,50");
+							ValorVar=8.50;
 						}
 						if (opcao1.contains("G")) {
 							pedido.setTamanho("2 litros");
-							pedido.setPreco("12,00");
+							pedido.setPreco("R$ 12,00");
+							ValorVar=12.00;
 						}
 					} while (opcao1.contains("PMG"));
 					System.out.println("Item: " + pedido.getPedido() + " Tipo: " + pedido.getSabor() + " Tamanho: " + pedido.getTamanho() + "\nPreco: " + pedido.getPreco());
 					System.out.println("Adicionar [S/N]\n");
 					validar = scanSt.nextLine().toUpperCase();
 					if (validar.equals("S")) {
+						ValorFinal+=ValorVar;
 						pedido.gravarPedido();
 					}
 					break;
 				case 3:
 					pedido.lerPedido();
+					System.out.printf("\nTotal de : R$ %.2f\n", ValorFinal);
 					break;
 
 				case 4:
-					boolean statusRename;
+					System.out.printf("\nTotal a pagar : R$ %.2f\n", ValorFinal);
+					System.out.println("Deseja confirmar a compra [S/N]");
+					validar = scanSt.nextLine().toUpperCase();
+					if (!validar.equals("S")) break;
 
+					boolean statusRename;
 					do{
-					File dir = new File("../pi/pedidos");
+					File dir = new File("./pedidos");
 					File arq = new File("pedidoArquivo.txt");
 					File arq2 = new File(dir, cont + ".txt");
 
@@ -150,4 +179,6 @@ public class exeItem {
 			}
 		} while (opcao != 6);
 	}
+
+
 }
