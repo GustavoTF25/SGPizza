@@ -5,7 +5,7 @@
  * 
  * 
  */
-
+// Implementando as Bibliotecas
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
@@ -135,10 +135,12 @@ public class exeItem {
 						pedido.gravarPedido();
 					}
 					break;
+					//Junta o pedido do cliente (refrigerante e pizza) e adiciona ao carrinho (Grava o pedido)
 				case 3:
 					pedido.lerPedido();
 					System.out.printf("\nTotal de : R$ %.2f\n", ValorFinal);
 					break;
+					//Demostra os pedidos dentro do carrinho e seu valor final
 
 				case 4:
 					System.out.printf("\nTotal a pagar : R$ %.2f\n", ValorFinal);
@@ -151,7 +153,7 @@ public class exeItem {
 					File dir = new File("./pedidos");
 					File arq = new File("pedidoArquivo.txt");
 					File arq2 = new File(dir, "pedido "+cont + " - cozinha");
-
+                                        //Cria um diretório pedidos, cria o arquivo temporário pedidoArquivo.txt 
 
 					statusRename = arq.renameTo(arq2);
 					arq.createNewFile();
@@ -161,6 +163,7 @@ public class exeItem {
 					System.out.println("Enviado para a cozinha pedido n  " + (--cont) );
 					ValorFinal=0;
 					break;
+					//Renomeia o arquivo e envia para a pasta pedidos, enquanto cria outro arquivo temporário em branco para um novo pedido.
 				case 5:
 					File arq5 = new File("pedidoArquivo.txt");
 					boolean statusRename4 = arq5.createNewFile();
@@ -168,6 +171,8 @@ public class exeItem {
 						arq5.delete();
 						arq5.createNewFile();
 					}
+			// Caso seja selecionada a opção de Limpar carrinho, o arquivo temporário pedidoArquivo.txt será deletado e será criado outro em seu lugar.
+					
 
 					System.out.println("limpando o carrinho");
 					ValorFinal=0;
