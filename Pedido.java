@@ -50,7 +50,7 @@ public class Pedido extends Item {
 
 	 @Override
 	public String toString(){
-		return "Pizza "+getPedido()+", "+sabor+", "+tamanho+", "+preco; 
+		return "Pedido "+getPedido()+", "+sabor+", "+tamanho+", "+preco; 
 		}	
 		
 	public boolean gravarPedido(){
