@@ -26,7 +26,7 @@ public class exeItem {
 		Scanner scanSt = new Scanner(System.in);
 		Scanner scan   = new Scanner(System.in);
 
-		Pizza pedido = new Pizza();
+		Pedido pedido = new Pedido();
          //Criando a pasta pedidos caso nao exista//
 
 		if (!(new File("./pedidos")).mkdir())(new File("./pedidos")).mkdir();
@@ -183,6 +183,8 @@ public class exeItem {
 					break;
 			}
 		} while (opcao != 6);
+		scan.close();
+		scanSt.close();
 	}
 
 
