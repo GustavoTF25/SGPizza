@@ -9,6 +9,10 @@ public class TelaCliente {
 
 	public static void main(String[] args) throws IOException {
 		
+		//Criando a pasta pedidos caso nao exista//
+
+		if (!(new File("./pedidos")).mkdir())(new File("./pedidos")).mkdir();
+		
 		//ele cria um objeto para manusear a pasta pedidos
 		File dir = new File("./pedidos");
 
