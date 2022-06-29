@@ -3,7 +3,6 @@
 import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
-
 public class TelaCozinha {
 
 	public static void main(String[] args) throws IOException {
@@ -22,6 +21,8 @@ public class TelaCozinha {
 			opcao = scan.nextInt();
 			switch (opcao) {
 				case 1:
+
+
 					arquivos = diretorio.listFiles();
 					Arrays.sort(arquivos);
 					for (int i = 0; i < arquivos.length; i++) {
@@ -42,7 +43,7 @@ public class TelaCozinha {
 				case 2:
 					arquivos = diretorio.listFiles();
 					Arrays.sort(arquivos);
-					if(arquivos.length<=0)
+					if(arquivos.length<=0)break;
 					System.out.println("Selecione qual pedido que quer ser modificado:");
 					for (int i = 0; i < arquivos.length; i++) {
 						//leia arquivos[i];
@@ -71,22 +72,15 @@ public class TelaCozinha {
 					if (opcao3.contains("F")) {
 						String texto = String.valueOf(arquivos[opcao1]);
 						String texto1 = texto.replaceAll("[\\D]", "");
-						/*System.out.println("convertido " + texto1);
-						System.out.println("pedido " + texto1 + " - forno");*/
 
-
-
-					File dir = new File("./pedidos");
-
-						boolean statusRename6 = (new File(String.valueOf(arquivos[opcao1])).renameTo(new File(dir, "pedido " + texto1 + " - forno")));
+						File dir = new File("./pedidos");
+						boolean statusRename7 = (new File(String.valueOf(arquivos[opcao1]))).renameTo(new File(dir, "pedido " + texto1 + " - forno"));
 						System.out.println(arquivos[opcao1]);
-						System.out.println("convertido " + statusRename6);
-			}
+						System.out.println("convertido " + statusRename7);
+					}
 					if (opcao3.contains("P")) {
 						String texto = String.valueOf(arquivos[opcao1]);
 						String texto1 = texto.replaceAll("[\\D]", "");
-						//System.out.println("convertido " + texto1);
-						//System.out.println("pedido " + texto1 + " - pronto");
 
 						File dir = new File("./pedidos");
 						boolean statusRename7 = (new File(String.valueOf(arquivos[opcao1]))).renameTo(new File(dir, "pedido " + texto1 + " - pronto"));
@@ -114,3 +108,4 @@ public class TelaCozinha {
 }
 
 }
+
