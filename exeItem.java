@@ -27,10 +27,9 @@ public class exeItem {
 		Scanner scan   = new Scanner(System.in);
 
 		Pizza pedido = new Pizza();
-
          //Criando a pasta pedidos caso nao exista//
 
-		if (!(new File("\"./pedidos\"")).mkdir())(new File("\"./pedidos\"")).mkdir();
+		if (!(new File("./pedidos")).mkdir())(new File("./pedidos")).mkdir();
 
 		// apagando o arquivo temporario pedidosArquivos //
 
