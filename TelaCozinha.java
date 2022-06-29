@@ -10,6 +10,11 @@ public class TelaCozinha {
 		Scanner scan   = new Scanner(System.in);
 		Scanner scanSt = new Scanner(System.in);
 		int 	opcao;
+		
+		//Criando a pasta pedidos caso nao exista//
+
+		if (!(new File("./pedidos")).mkdir())(new File("./pedidos")).mkdir();
+		
 		File diretorio = new File("./pedidos");
 		arquivos = diretorio.listFiles();
 
