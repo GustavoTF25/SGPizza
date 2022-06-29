@@ -36,15 +36,17 @@ public class TelaCozinha {
 
 						String strng1;
 						while ((strng1 = obj1.readLine()) != null)
-							System.out.println(strng1);
 
+							System.out.println(strng1);
+							obj1.close();
 					}
+
 					break;
 				case 2:
 					arquivos = diretorio.listFiles();
 					Arrays.sort(arquivos);
 					if(arquivos.length<=0)break;
-					System.out.println("Selecione qual pedido que quer ser modificado:");
+
 					for (int i = 0; i < arquivos.length; i++) {
 						//leia arquivos[i];
 						System.out.print(i + " ) " + arquivos[i] + "\n");
@@ -58,7 +60,9 @@ public class TelaCozinha {
 						String strng;
 						while ((strng = obj.readLine()) != null)
 							System.out.println(strng);
+						obj.close();
 					}
+					System.out.println("Selecione qual pedido que quer ser modificado:");
 					int opcao1 = scan.nextInt();
 
 					System.out.println("selecionou : ");
